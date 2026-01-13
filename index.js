@@ -1,5 +1,4 @@
-console.log(15)
-
+renderPosts()
 const posts = [
     {
         name: "Vincent van Gogh",
