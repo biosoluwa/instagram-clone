@@ -1,4 +1,3 @@
-renderPosts()
 
 const posts = [
     {
@@ -39,22 +38,22 @@ function renderPosts(){
        postItems += (` <section>
                                 <div class="post" id="post-${i}">
                                     <div class="avatar-image">
-                                    <img src="${posts[i].avatar}" alt="" class="avatar" />
-                                    <p>
-                                        <span class="bold-text">${posts[i].name}</span> <br />${posts[i].location}
-                                    </p>
+                                        <img src="${posts[i].avatar}" alt="" class="avatar" />
+                                        <p>
+                                            <span class="bold-text">${posts[i].name}</span> <br />${posts[i].location}
+                                        </p>
                                     </div>
                                     <img class="post-image" src="${posts[i].post}" alt="" />
                                     <div class="show-engagement">
-                                    <div class="icons">
-                                        <img src="images/icon-heart.png" alt="" class="icon" />
-                                        <img src="images/icon-comment.png" alt="" class="icon" />
-                                        <img src="images/icon-dm.png" alt="" class="icon" />
-                                    </div>
-                                    <p class="bold-text" id="bold-text-${i}">${posts[i].likes}</p>
-                                    <p>
-                                        <span class="bold-text">${posts[i].username}</span> ${posts[i].comment}
-                                    </p>
+                                        <div class="icons">
+                                            <img src="images/icon-heart.png" alt="" class="icon" />
+                                            <img src="images/icon-comment.png" alt="" class="icon" />
+                                            <img src="images/icon-dm.png" alt="" class="icon" />
+                                        </div>
+                                        <p class="bold-text" id="bold-text-${i}">${posts[i].likes}</p>
+                                        <p>
+                                            <span class="bold-text">${posts[i].username}</span> ${posts[i].comment}
+                                        </p>
                                     </div>
                                 </div>
                     </section>
@@ -73,3 +72,5 @@ showLikes.textContent = `${posts[i].likes} likes`
 })
     }
 }
+
+renderPosts();
