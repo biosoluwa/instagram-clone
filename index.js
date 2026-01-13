@@ -1,4 +1,5 @@
 renderPosts()
+
 const posts = [
     {
         name: "Vincent van Gogh",
@@ -72,5 +73,3 @@ showLikes.textContent = `${posts[i].likes} likes`
 })
     }
 }
-
-renderPosts()
