@@ -46,11 +46,14 @@ function renderPosts(){
                                     <img class="post-image" src="${posts[i].post}" alt="" />
                                     <div class="show-engagement">
                                         <div class="icons">
-                                            <img src="images/icon-heart.png" alt="" class="icon" />
+                                            
+                                                <img src="images/icon-heart.png" alt="" class="icon like-img" role="button" aria-label="like button" id="like-img"/>
                                             <img src="images/icon-comment.png" alt="" class="icon" />
                                             <img src="images/icon-dm.png" alt="" class="icon" />
                                         </div>
-                                        <p class="bold-text" id="bold-text-${i}">${posts[i].likes}</p>
+                                        <p
+                                             class="bold-text" id="bold-text-${i}">${posts[i].likes} likes
+                                        </p>
                                         <p>
                                             <span class="bold-text">${posts[i].username}</span> ${posts[i].comment}
                                         </p>
@@ -59,18 +62,32 @@ function renderPosts(){
                     </section>
       </div>`)
     }
+
     renderEl.innerHTML = postItems;
 
     for(let i = 0; i < posts.length; i++){
+        let increaseLikes = document.getElementById(`post-${i}`);
+        let showLikes = document.getElementById(`bold-text-${i}`)
+        let likeImg = document.querySelector('.like-img');
 
-let increaseLikes = document.getElementById(`post-${i}`);
-let showLikes = document.getElementById(`bold-text-${i}`)
+            likeImg.addEventListener('click', function(){
+            likeImg.classList.toggle('liked');
+            if(likeImg.classList.contains('liked')){
+                posts[i].likes++
+            }else{
+                posts[i].likes--
+            }
+                showLikes.textContent = `${posts[i].likes} likes`
 
-increaseLikes.addEventListener("dblclick", function(){
-    posts[i].likes ++;
-showLikes.textContent = `${posts[i].likes} likes`
-})
-    }
-}
+            })
+            increaseLikes.addEventListener("dblclick", function(){
+            posts[i].likes ++;
+            showLikes.textContent = `${posts[i].likes} likes`
+             })
+        }
+ } 
+ renderPosts();
 
-renderPosts();
+
+
+
